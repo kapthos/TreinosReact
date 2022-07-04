@@ -56,6 +56,10 @@ const BalaoTexto = styled.div`
 `
 export function Main() {
 
+    const [listaChats, setListaChats] = useState ([
+        //array de chats vai ficar aqui
+    ])
+
     return (
         <MainDiv>
             <AreaMensagens>
@@ -64,6 +68,8 @@ export function Main() {
                         <h1>
                             juan
                         </h1>
+                        {/* balão de exemplo, mas eu quero colocar { remetente } e { textoMensagem } 
+                        pra popular o objeto que vai ser jogado pro array acima*/}
                         <p>
                             teste
                         </p>
