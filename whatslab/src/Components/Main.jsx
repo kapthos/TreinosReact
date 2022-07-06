@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components"
 
 // import { MensagemBalao } from './Mensagem'
-import { Inputs } from './Input';
+// import { Inputs } from './Input';
 
 const MainDiv = styled.div`
     display: flex;
@@ -54,29 +54,120 @@ const BalaoTexto = styled.div`
     }
 
 `
+////////////////////////////////// CSS Inputs /////////////////////////////////
+
+const InputsArea = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background: #1f2e30;
+    border-top: 2px solid #2c3a3b;
+`
+
+const RemetenteDiv = styled.div`
+    & label {
+        font-weight: 400;
+        font-size: 1.1rem;
+        color: #DDE9EB;
+        margin-left: 0.5rem;
+    }
+    & input {
+        background-color: #DDE9EB;
+        border: 1px solid #636869;
+        border-radius: 4px;
+        margin: 0.5em;
+        width: 10em;
+        padding: .5em;
+    }
+`
+
+const MensagemDiv = styled.div`
+    & label {
+        font-weight: 400;
+        font-size: 1.1rem;
+        margin: 0.5rem;
+        color: #DDE9EB
+    }
+    & input {
+        background-color: #DDE9EB;
+        border: 1px solid #636869;
+        border-radius: 4px;
+        margin: 0.5em;
+        width: 65em;
+        padding: .5em;
+    }
+`
+
+const Botao = styled.a`
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.25em 0.75em;
+    margin-left: 1rem;
+    border-radius: 6px;
+    border: 1px solid #636869;
+    color: #1d1e1f;
+    background: #DDE9EB;
+
+    &:hover {
+        background: #bbb;
+        color: black;
+        border: 1px solid #d0d2d3;
+        transition: all 250ms ease-out;
+    }
+`
+
 export function Main() {
 
-    const [listaChats, setListaChats] = useState ([
-        //array de chats vai ficar aqui
+    const [remetente, setRemetente] = useState('');
+    const [textoMensagem, setTextoMensagem] = useState('');
+
+    const [listaChats, setListaChats] = useState([
+        {
+            rmt: remetente,
+            txt: textoMensagem
+        },
     ])
+
+    const lerRemetente = (event) => {
+        setRemetente(event.target.value);
+        console.log(remetente)
+    }
+
+    const lerTexto = (event) => {
+        setTextoMensagem(event.target.value);
+    }
+
+    const teste = listaChats.map((chats, key) => {
+        return (
+            <BalaoTexto key={key} style={{ background: '#5bdb7b' }}>
+                <h1> {chats.rmt} </h1>
+                <p> {chats.txt} </p>
+            </BalaoTexto>
+        )
+    })
 
     return (
         <MainDiv>
             <AreaMensagens>
                 <MensagemLinha style={{ justifyContent: 'flex-end' }}>
-                    <BalaoTexto style={{ backgroundColor: '#bafaa1' }}>
-                        <h1>
-                            juan
-                        </h1>
-                        {/* balão de exemplo, mas eu quero colocar { remetente } e { textoMensagem } 
-                        pra popular o objeto que vai ser jogado pro array acima*/}
-                        <p>
-                            teste
-                        </p>
-                    </BalaoTexto>
+                    {teste}
                 </MensagemLinha>
             </AreaMensagens>
-            <Inputs />
+            <InputsArea>
+                <RemetenteDiv>
+                    <label>Remetente:</label>
+                    <input placeholder="Usuário" type="text" onChange={lerRemetente} />
+                </RemetenteDiv>
+                <MensagemDiv>
+                    <label>Mensagem:</label>
+                    <input placeholder="Digite uma mensagem" type="text" onChange={lerTexto} />
+                </MensagemDiv>
+                <Botao>
+                    Enviar
+                </Botao>
+            </InputsArea>
         </MainDiv>
     )
 }

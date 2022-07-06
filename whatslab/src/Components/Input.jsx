@@ -63,19 +63,14 @@ const Botao = styled.a`
     }
 `
 
-export function Inputs() {
-
-    const [remetente, setRemetente] = useState('');
-    const [textoMensagem, setTextoMensagem] = useState('');
+export function Inputs(props) {
 
     const lerRemetente = (event) => {
-        console.log(remetente)
-        setRemetente(event.target.value);
+        props.setRemetente(event.target.value);
     }
 
     const lerTexto = (event) => {
-        console.log(textoMensagem)
-        setTextoMensagem(event.target.value);
+        props.setTextoMensagem(event.target.value);
     }
 
     return (
@@ -86,7 +81,7 @@ export function Inputs() {
             </RemetenteDiv>
             <MensagemDiv>
                 <label>Mensagem:</label>
-                <input placeholder="Digite uma mensagem" type="text" onChange={lerTexto} />
+                <input placeholder="Digite uma mensagem" type="text" onChange={lerTexto}/>
             </MensagemDiv>
             <Botao>
                 Enviar
