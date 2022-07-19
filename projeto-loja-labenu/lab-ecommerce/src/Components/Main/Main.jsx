@@ -1,17 +1,29 @@
 import React from 'react'
-import { DivPai } from './MainStyled'
+import { DivPai, DivCards, Quantidade } from './MainStyled'
 import { Card } from '../Card/Card'
 
 export function Main() {
     return (
         <DivPai>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+            <Quantidade>
+                <p>Quantidade de produtos: <span>10</span></p>
+                <form>
+                    <label for="Ordem">Ordenar: </label>
+                    <select id="ordens">
+                        <option value="menor">Menor preço</option>
+                        <option value="maior">Maior preço</option>
+                    </select>
+                </form>
+            </Quantidade>
+            <DivCards>
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+            </DivCards >
         </DivPai>
     )
 }
