@@ -20,6 +20,7 @@ export const DivCards = styled.div`
     justify-items: center;
     align-items: center;
     grid-template-columns: repeat(4, 20em);
+    grid-template-rows: 300px;
     margin: 0 auto;
-    min-height: 100vh;
+    height: 100vh;
 `

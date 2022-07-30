@@ -7,4 +7,5 @@ export const CardBox = styled.div`
     width: 15em;
     height: 20em;
     align-items: center;
+    margin: 2em 2em;
 `

@@ -1,6 +1,7 @@
 import React from 'react'
 import { DivPai, DivCards, Quantidade } from './MainStyled'
 import { Card } from '../Card/Card'
+import { MockUp } from './../MockUp/MockUp';
 
 export function Main() {
     return (
@@ -16,13 +17,7 @@ export function Main() {
                 </form>
             </Quantidade>
             <DivCards>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                <Card  meuTeste={MockUp}/>
             </DivCards >
         </DivPai>
     )
