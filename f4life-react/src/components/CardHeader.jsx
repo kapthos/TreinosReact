@@ -4,7 +4,7 @@ import BGPhoto from '../assets/Foto_Header.png'
 
 const CardHeader = () => {
     return (
-        <Box sx={{ borderBottom: '8px solid #6DDAD3', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', py: '4%', backgroundImage: { xs: 'linear-gradient(to right bottom, #132235, #18365B)', sm: `url(${BGPhoto})` }, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+        <Box sx={{ borderBottom: '8px solid #6DDAD3', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', py: '5%', backgroundImage: { xs: 'linear-gradient(to right bottom, #132235, #18365B)', sm: `url(${BGPhoto})` }, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
             <Typography variant="h1" color="white"
                 sx={{ width: { xs: '80%', xl: '70%' }, pb: { xs: '10%', sm: '3%' }, fontSize: { xs: '48px', sm: '64px' } }}>
                 As melhores moradias para universitários.
