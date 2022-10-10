@@ -1,8 +1,11 @@
-import { Container, AppBar, Toolbar, Box, Typography } from '@mui/material'
+import { Container, AppBar, Toolbar, Box, Typography, Avatar, Rating, Button } from '@mui/material'
 import Logo from '../assets/Logo.png'
 import CardHeader from '../components/CardHeader';
 import MeetingPhoto from '../assets/Foto_reuniao.png'
 import WomanKitnet from '../assets/Kitnet-foto.png'
+import RepublicaPhoto from '../assets/Republica-foto.png'
+import JohnPhoto from '../assets/JohnPhoto.jpg'
+import SarahPhoto from '../assets/SarahPhoto.jpg'
 
 function Main() {
     return (
@@ -50,15 +53,15 @@ function Main() {
                 </Container>
                 <Box
                     sx={{
-                        height: '6px', width: '100vw',
+                        height: '6px', width: '100%',
                         background: 'linear-gradient(to right, #AAA 0%, #000 50%, #AAA 100%)',
                         mt: '4%'
                     }} />
 
 
-                <Box sx={{ display: 'flex', pt: '4%', flexDirection: 'column', alignItems: 'center', width:{xs:'90%', sm:'87%', md:'100%'} }}>
+                <Box sx={{ display: 'flex', pt: '4%', flexDirection: 'column', alignItems: 'center', width: { xs: '90%', sm: '87%', md: '100%' } }}>
                     <Typography variant="h1" color="#132235" fontWeight='800' textAlign='center'
-                        sx={{ width: '100%', pb: '5%', fontSize: { xs: '52px', sm: '72px', md:'80px' } }}>
+                        sx={{ width: '100%', pb: '5%', fontSize: { xs: '52px', sm: '72px', md: '80px' } }}>
                         Nossos Serviços
                     </Typography>
 
@@ -80,6 +83,48 @@ function Main() {
                                 Kitnets sendo um apartamento menor para uma pessoa que prefere manter sua privacidade e adiantar a vida morando sozinho.
                             </Typography>
                         </Box>
+                    </Box>
+                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row', alignItems: 'center', width: '80%' }, pb: '5%' }}>
+                        <Box sx={{
+                            display: 'flex', flexDirection: 'column'
+                        }}>
+                            <Typography variant="h1" color="#132235" fontWeight='800' textAlign='center'
+                                sx={{ width: '100%', py: '5%', fontSize: { xs: '32px', sm: '44px' } }}>
+                                Repúblicas
+                            </Typography>
+                            <Typography variant="h6" color="#132235" textAlign='center' fontWeight='400'
+                                sx={{ width: '100%', pb: '5%', fontSize: { xs: '24px', sm: '28px' } }}>
+                                Repúblicas para dividir com outros alunos, fazer amizades e aproveitar essa época em grupo.
+                            </Typography>
+                        </Box>
+                        <Box component='img' src={RepublicaPhoto} alt="logo_image"
+                            sx={{
+                                width: { xs: '100%', sm: '80%', md: '60%' }
+                            }} />
+                    </Box>
+                </Box>
+                <Box sx={{ width: '100%', height: { xs: '42rem', sm: '35rem' }, background: 'linear-gradient(to right bottom, #132235, #18365B)', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                    <Box sx={{ width: { xs: '100%' }, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center' }}>
+                        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: { xs: 'column', sm: 'row' } }}>
+                            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+                                <Avatar src={JohnPhoto} alt="John Photo" sx={{ width: '96px', height: '96px' }} />
+                                <Rating name="read-only" value={5} readOnly />
+                                <Typography variant="h5" color="white" fontWeight='800' textAlign='center'>John Smith</Typography>
+                                <Typography variant="body1" color="#DDD" fontWeight='400' textAlign='center'>São Paulo, 23</Typography>
+                                <Typography variant="h6" color="white" fontWeight='600' textAlign='justify' sx={{ width: { xs: '80%', sm: '75%', lg: '60%' }, pt: '3%', fontSize: { xs: '12px', sm: '20px' } }}>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.”</Typography>
+                            </Box>
+                            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+                                <Avatar src={SarahPhoto} alt="John Photo" sx={{ width: '96px', height: '96px' }} />
+                                <Rating name="read-only" value={5} readOnly />
+                                <Typography variant="h5" color="white" fontWeight='800' textAlign='center'>Sarah</Typography>
+                                <Typography variant="body1" color="#DDD" fontWeight='400' textAlign='center'>Curitiba, 19</Typography>
+                                <Typography variant="h6" color="white" fontWeight='600' textAlign='justify' sx={{ width: { xs: '80%', sm: '75%', lg: '60%' }, pt: '3%', fontSize: { xs: '12px', sm: '20px' } }}>“Sed ut perspiciatis unde omnis iste natus error sit voluptatem laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam.”</Typography>
+                            </Box>
+                        </Box>
+                        <Button variant='contained'
+                            sx={{ borderRadius: '10rem', width: { xs: '35%', sm: '20%', lg: '12%', xl: '8%' }, bgcolor: '#6DDAD3', color: '#132235', fontWeight: '800', border: '1px solid white', fontSize: { xs: '12px', sm: '16px' } }}>
+                            Veja Mais
+                        </Button>
                     </Box>
                 </Box>
             </Box>
