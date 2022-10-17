@@ -1,5 +1,6 @@
+import React, { useState, useRef } from 'react'
 import { Container, AppBar, Toolbar, Box, Typography, Avatar, Rating, Button, TextField, Link } from '@mui/material'
-import { FacebookRounded, Twitter, Instagram, WhatsApp, YouTube } from '@mui/icons-material'
+import { FacebookRounded, Twitter, Instagram, WhatsApp, YouTube, Menu } from '@mui/icons-material'
 import RepublicaPhoto from '../assets/Republica-foto.png'
 import MeetingPhoto from '../assets/Foto_reuniao.png'
 import WomanKitnet from '../assets/Kitnet-foto.png'
@@ -9,10 +10,37 @@ import JohnPhoto from '../assets/JohnPhoto.jpg'
 import Logo from '../assets/Logo.png'
 
 function Main() {
+    const qs = useRef(null)
+    const ns = useRef(null)
+    const nc = useRef(null)
+    const ct = useRef(null)
+
+    const [isOpen, setIsOpen] = useState(false)
+
+    const handleScrollQS = () => {
+        qs.current?.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(!isOpen)
+    };
+    const handleScrollNS = () => {
+        ns.current?.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(!isOpen)
+    };
+    const handleScrollNC = () => {
+        nc.current?.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(!isOpen)
+    };
+    const handleScrollCT = () => {
+        ct.current?.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(!isOpen)
+    };
+
+    const handleClick = () => {
+        setIsOpen(!isOpen)
+    }
 
     function Copyright() {
         return (
-            <Typography variant="body2" color="#FFF" align="center" sx={{ fontSize: { xs: '12px', sm: '16px' }, pl: '5%' }}>
+            <Typography variant="body2" color='#FFF' align="center" sx={{ fontSize: { xs: '12px', sm: '16px' }, pl: '5%' }}>
                 {'Copyright © '}
                 <Link color="#FFF" href="https://mui.com/">Juan Torterolo</Link>
                 {' '}
@@ -30,16 +58,22 @@ function Main() {
                     <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', height: '80px' }}>
                         <Box sx={{ display: { xs: 'flex', sm: 'none' }, alignItems: 'center', ml: '-95%' }}>
                             <Box component='img' src={Logo} alt="logo_image" />
-                            <Box sx={{ position: 'relative', left: '35%' }}>
-                                Burg
+                            <Box onClick={() => handleClick()} sx={{ position: 'relative', left: '35%' }}>
+                                <Menu sx={{ fontSize: '32px' }} />
+                            </Box>
+                            <Box sx={{ width: '170px', height: '150px', bgcolor: 'rgba(220,233,237,0.92)', position: 'absolute', left: '50%', top: '80%', display: isOpen ? 'flex' : 'none', flexDirection: 'column', justifyContent: 'space-evenly', borderRadius: '8%' }}>
+                                <Typography onClick={() => handleScrollQS()} fontSize='16px' fontWeight={800} color='#132235' textAlign='center'>Quem somos</Typography>
+                                <Typography onClick={() => handleScrollNS()} fontSize='16px' fontWeight={800} color='#132235' textAlign='center'>Nossos Serviços</Typography>
+                                <Typography onClick={() => handleScrollNC()} fontSize='16px' fontWeight={800} color='#132235' textAlign='center'>Nossos Clientes</Typography>
+                                <Typography onClick={() => handleScrollCT()} fontSize='16px' fontWeight={800} color='#132235' textAlign='center'>Contato</Typography>
                             </Box>
                         </Box>
                         <Box component='img' src={Logo} alt="logo_image" sx={{ display: { xs: 'none', sm: 'flex' }, mr: '24px' }} />
                         <Box sx={{ display: { xs: 'none', sm: 'flex' }, justifyContent: 'space-between', width: '75%' }}>
-                            <Typography variant="h6" fontWeight={700} component='a' href='#' sx={{ fontSize: { sm: '16px', md: '20px', lg: '24px' }, textDecoration: 'none', color: '#FFF' }}>Quem somos</Typography>
-                            <Typography variant="h6" fontWeight={700} component='a' href='#' sx={{ fontSize: { sm: '16px', md: '20px', lg: '24px' }, textDecoration: 'none', color: '#FFF' }}>Nossos Serviços</Typography>
-                            <Typography variant="h6" fontWeight={700} component='a' href='#' sx={{ fontSize: { sm: '16px', md: '20px', lg: '24px' }, textDecoration: 'none', color: '#FFF' }}>Nossos Clientes</Typography>
-                            <Typography variant="h6" fontWeight={700} component='a' href='#' sx={{ fontSize: { sm: '16px', md: '20px', lg: '24px' }, textDecoration: 'none', color: '#FFF' }}>Contato</Typography>
+                            <Typography variant="h6" fontWeight={700} onClick={() => handleScrollQS()} sx={{ fontSize: { sm: '16px', md: '20px', lg: '24px' }, color: '#FFF', cursor: 'pointer' }}>Quem somos</Typography>
+                            <Typography variant="h6" fontWeight={700} onClick={() => handleScrollNS()} sx={{ fontSize: { sm: '16px', md: '20px', lg: '24px' }, color: '#FFF', cursor: 'pointer' }}>Nossos Serviços</Typography>
+                            <Typography variant="h6" fontWeight={700} onClick={() => handleScrollNC()} sx={{ fontSize: { sm: '16px', md: '20px', lg: '24px' }, color: '#FFF', cursor: 'pointer' }}>Nossos Clientes</Typography>
+                            <Typography variant="h6" fontWeight={700} onClick={() => handleScrollCT()} sx={{ fontSize: { sm: '16px', md: '20px', lg: '24px' }, color: '#FFF', cursor: 'pointer' }}>Contato</Typography>
                         </Box>
                     </Toolbar>
                 </Container>
@@ -47,14 +81,14 @@ function Main() {
             <CardHeader />
             <Box sx={{ bgcolor: '#DCE9ED', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Container maxWidth='xl'>
-                    <Box sx={{ display: 'flex', pt: '4%', px: '8%' }}>
+                    <Box ref={qs} sx={{ width: '100%', display: 'flex', pt: '4%', paddingX:{xs:'8%', sm:'4%', xl:'2%'} }}>
                         <Box>
                             <Typography variant="h1" color="#132235" fontWeight='800' textAlign='center'
                                 sx={{ width: '100%', pb: '5%', fontSize: { xs: '52px', sm: '80px' } }}>
                                 Quem somos
                             </Typography>
                             <Typography variant="h6" color="#132235" fontWeight='400'
-                                sx={{ width: '100%', pb: '5%', fontSize: { xs: '24px', sm: '24px' } }}>
+                                sx={{ width: '100%', pb: '5%', fontSize: { xs: '24px', sm: '32px' } }}>
                                 Durante nossos estudos, sempre tivemos problemas em econtrar moradia de qualidade e próximas à universidades. Decidimos então, criar uma empresa que realiza reformas e prepara moradias, na recepção de pessoas universitárias e sem burocracia, para que voce possa focar naquilo que realmente importa: sua educação!
                             </Typography>
                         </Box>
@@ -71,9 +105,7 @@ function Main() {
                         background: 'linear-gradient(to right, #AAA 0%, #000 50%, #AAA 100%)',
                         mt: '4%'
                     }} />
-
-
-                <Box sx={{ display: 'flex', pt: '4%', flexDirection: 'column', alignItems: 'center', width: { xs: '90%', sm: '87%', md: '100%' } }}>
+                <Box ref={ns} sx={{ display: 'flex', pt: '4%', flexDirection: 'column', alignItems: 'center', width: { xs: '90%', sm: '87%', md: '100%' } }}>
                     <Typography variant="h1" color="#132235" fontWeight='800' textAlign='center'
                         sx={{ width: '100%', pb: '5%', fontSize: { xs: '52px', sm: '72px', md: '80px' } }}>
                         Nossos Serviços
@@ -117,7 +149,7 @@ function Main() {
                             }} />
                     </Box>
                 </Box>
-                <Box sx={{ width: '100%', height: { xs: '42rem', sm: '35rem' }, background: 'linear-gradient(to right bottom, #132235, #18365B)', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                <Box ref={nc} sx={{ width: '100%', height: { xs: '42rem', sm: '35rem' }, background: 'linear-gradient(to right bottom, #132235, #18365B)', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
                     <Box sx={{ width: { xs: '100%' }, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center' }}>
                         <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: { xs: 'column', sm: 'row' } }}>
                             <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', flex: 1 }}>
@@ -141,10 +173,7 @@ function Main() {
                         </Button>
                     </Box>
                 </Box>
-
-
-
-                <Box sx={{ display: 'flex', pt: '4%', flexDirection: 'column', alignItems: 'center', width: { xs: '90%', sm: '87%', lg: '90%' } }}>
+                <Box ref={ct} sx={{ display: 'flex', pt: '4%', flexDirection: 'column', alignItems: 'center', width: { xs: '90%', sm: '87%', lg: '90%' } }}>
                     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'center', alignItems: 'center', pb: '2%' }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flex: 3 }}>
                             <Typography variant="h1" color="#132235" fontWeight='800'
