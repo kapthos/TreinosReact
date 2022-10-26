@@ -8,11 +8,15 @@ Recebendo apenas o nome o e logo, criei todo o conteúdo, design e identidade vi
 
 ## Screenshots
 
-![App Screenshot](https://imgur.com/a/9pbiREN.jpg)
-![App Screenshot](https://imgur.com/a/pIe3b0u.jpg)
-![App Screenshot](https://imgur.com/a/TKIOznA.jpg)
-![App Screenshot](https://imgur.com/a/ZiOrbx9.jpg)
-![App Screenshot](https://imgur.com/a/cnmRlQm.jpg)
+![App Screenshot](https://i.postimg.cc/P5QyDtYJ/buGeKNv.png)
+
+![App Screenshot](https://i.postimg.cc/PqZtyRfC/gMdxHeX.png)
+
+![App Screenshot](https://i.postimg.cc/bNCNwnFw/VYoXJ12.png)
+
+![App Screenshot](https://i.postimg.cc/mgkkYjF9/qji90V6.png)
+
+![App Screenshot](https://i.postimg.cc/5Nx60b4n/m2rJHQh.png)
 
 
 ## Autores
